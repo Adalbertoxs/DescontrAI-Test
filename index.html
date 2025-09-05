@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto ESOF</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Canvas para partículas -->
+    <canvas id="particles"></canvas>
+
+    <header>
+      <h1>Projeto ESOF</h1>
+      <button class="login-btn" onclick="location.href='login.html'">
+        Login
+      </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero animate">
+      <div class="hero-text">
+        <h2>Bem-vindo ao Projeto de ESOF</h2>
+        <p>
+          O DescontrAI é um sistema desenvolvido para a disciplina de Engenharia
+          de Software, com foco em proporcionar uma experiência de interação
+          simples e eficiente. O projeto busca aplicar conceitos de engenharia
+          na construção de uma solução intuitiva e funcional, explorando boas
+          práticas de desenvolvimento e design de software.
+        </p>
+        <a href="#sobre" class="cta-btn">Saiba Mais</a>
+      </div>
+      <div class="hero-logo">
+        <img src="assets/Logo-Esof.png" alt="Logo do Projeto ESOF" />
+      </div>
+    </section>
+
+    <main>
+      <section id="sobre" class="animate">
+        <h2>Sobre o Projeto</h2>
+        <p>
+          O DescontrAI é um aplicativo voltado para quem busca profissionais do
+          ramo musical e espaços para eventos. A plataforma conecta contratantes
+          a músicos, DJs e casas de show, oferecendo recursos como filtros de
+          busca, solicitação de datas, contratos digitais, pagamentos seguros e
+          chat integrado. O objetivo é expandir o mercado de eventos de forma
+          prática e acessível, aproximando artistas e clientes em uma única
+          solução.
+        </p>
+      </section>
+
+      <section id="integrantes" class="animate">
+        <h2>Integrantes</h2>
+        <p>
+          O projeto foi desenvolvido por: Adalberto S Pereira, Emanuel C Simões
+          e Andreey Coutinho, cada um contribuindo em diferentes módulos do
+          sistema.
+        </p>
+      </section>
+
+      <section id="disciplina" class="animate">
+        <h2>Disciplina</h2>
+        <p>
+          O projeto faz parte da disciplina de Engenharia de Software (ESOF),
+          voltada para o desenvolvimento de projetos.
+        </p>
+      </section>
+
+      <section id="professor" class="animate">
+        <h2>Professor</h2>
+        <p>
+          O orientador do projeto é o Prof. Alexandre Cardoso, que supervisiona
+          o desenvolvimento, orienta a equipe e fornece feedback contínuo sobre
+          o progresso do trabalho.
+        </p>
+      </section>
+
+      <section id="cards" class="animate">
+        <h2>Gêneros musicais</h2>
+        <div class="cards-container">
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/forro.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/forrotittle.png" class="title" />
+            <img src="./assets/instrumento-forro.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/funk.avif" class="cover-image" />
+            </div>
+            <img src="./assets/funktittle.png" class="title" />
+            <img src="./assets/instrumento-funk.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/jazz.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/jazztittle.png" class="title" />
+            <img src="./assets/instrumento-jazz.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/musica-eletronica.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/eletronicattile.png" class="title" />
+            <img src="./assets/instrumento-eletronica.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/pagode.jpeg" class="cover-image" />
+            </div>
+            <img src="./assets/pagodetittle.png" class="title" />
+            <img src="./assets/instrumento-pagode.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/rock.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/rocktittle.png" class="title" />
+            <img src="./assets/instrumento-rock.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/samba.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/sambatittle.png" class="title" />
+            <img src="./assets/instrumento-samba.png" class="character" />
+          </div>
+
+          <div class="card">
+            <div class="wrapper">
+              <img src="./assets/sertanejo.jpg" class="cover-image" />
+            </div>
+            <img src="./assets/sertanejotittle.png" class="title" />
+            <img src="./assets/instrumento-sertanejo.png" class="character" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2025 Projeto ESOF - Todos os direitos reservados</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
