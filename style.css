@@ -250,6 +250,7 @@ section p {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  pointer-events: none;
 }
 
 .wrapper {
@@ -260,6 +261,7 @@ section p {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 .card:hover .wrapper {
@@ -482,4 +484,363 @@ footer {
   .cards-container {
     grid-template-columns: 1fr;
   }
+
+  .transicao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .transicao .fatia {
+    transform: translatey(-100%);
+  }
+
+  .transicao.ativa .fatia {
+    transform: translatey(0%);
+  }
+
+  .transicao .imagem {
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.4s;
+  }
+
+  .transicao.ativa .imagem {
+    opacity: 1;
+  }
+
+  .transicao .fatia:nth-child(1) {
+    transition-delay: 0s;
+  }
+
+  .transicao .fatia:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  .transicao .fatia:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+
+  .transicao .fatia:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+
+  .transicao .fatia:nth-child(5) {
+    transition-delay: 0.4s;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .imagem {
+      min-width: 300px !important;
+      position: absolute;
+    }
+
+    .transicao .fatia:nth-child(3) {
+      overflow: visible !important;
+      z-index: 9999;
+    }
+  }
+}
+
+/* Transição entre páginas */
+.transicao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.transicao.ativa {
+  opacity: 1;
+}
+
+.transicao.ativa .fatia {
+  transform: translateY(0%);
+}
+
+.transicao .fatia {
+  width: 20%;
+  height: 100%;
+  background-color: var(--primary);
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.transicao .fatia:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.transicao .fatia:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.transicao .fatia:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.transicao .fatia:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.transicao .fatia:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+/* Garante que o corpo não tenha barra de rolagem durante a transição */
+body.transicao-ativa {
+  overflow: hidden;
+}
+
+/* Media Queries para a transição */
+@media (max-width: 1024px) {
+  .transicao .fatia:nth-child(3) {
+    overflow: visible !important;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 480px) {
+  .transicao .fatia {
+    width: 100%;
+    transform: translateY(-100%);
+  }
+
+  .transicao .fatia:nth-child(2),
+  .transicao .fatia:nth-child(3),
+  .transicao .fatia:nth-child(4),
+  .transicao .fatia:nth-child(5) {
+    display: none;
+  }
+}
+
+/* --- Modal e Cards de Artistas --- */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s ease-in-out;
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.close-btn {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: var(--primary);
+}
+
+#artist-genre-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#artist-cards-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.artist-card {
+  background: var(--background);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+}
+
+.artist-card img {
+  width: 100%;
+  height: 250px; /* Altura fixa para a imagem */
+  object-fit: cover; /* Recorta a imagem para preencher o espaço */
+}
+
+.artist-info {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artist-info h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.artist-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.artist-details .price {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.artist-details .location {
+  font-weight: normal;
+  color: var(--text-secondary);
+}
+
+.artist-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.artist-genres span {
+  background-color: #333;
+  color: var(--text);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.artist-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.reserve-btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary);
+  color: var(--text);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.reserve-btn:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* Estilos de estrelas */
+.star-rating {
+  color: #ffc107;
+}
+
+.star-rating .star {
+  font-size: 1rem;
+}
+
+/* ... código existente ... */
+
+/* --- Estilos para o Pop-up de Mensagem --- */
+.popup-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  z-index: 9999;
+  text-align: center;
+}
+
+.popup-message.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-message.success {
+  background-color: #4caf50;
+}
+
+.popup-message.error {
+  background-color: #f44336;
+}
+
+/* --- Estilos para o Perfil do Usuário no Header --- */
+.user-profile {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  font-weight: 600;
+  gap: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.user-profile:hover {
+  opacity: 0.8;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
 }
