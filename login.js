@@ -31,8 +31,11 @@ loginForm.addEventListener("submit", async (e) => {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
 
+  // URL correta do seu backend
+  const apiUrl = "http://localhost:5145/api/account/login";
+
   try {
-    const response = await fetch("http://localhost:5000/api/account/login", {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +56,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     showPopup(
-      "Erro de conexão com o servidor. Certifique-se de que o backend está rodando em http://localhost:5000.",
+      "Erro de conexão com o servidor. Certifique-se de que o backend está rodando em http://localhost:5145.",
       false
     );
   }
@@ -65,8 +68,11 @@ registerForm.addEventListener("submit", async (e) => {
   const email = document.getElementById("register-email").value;
   const password = document.getElementById("register-password").value;
 
+  // URL correta do seu backend
+  const apiUrl = "http://localhost:5145/api/account/register";
+
   try {
-    const response = await fetch("http://localhost:5000/api/account/register", {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +89,7 @@ registerForm.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     showPopup(
-      "Erro de conexão com o servidor. Certifique-se de que o backend está rodando em http://localhost:5000.",
+      "Erro de conexão com o servidor. Certifique-se de que o backend está rodando em http://localhost:5145.",
       false
     );
   }
